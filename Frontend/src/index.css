@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-brand-red: #C41E3A;
+  --color-brand-dark: #0A0A0A;
+  --color-brand-surface: #1A1A1A;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-dark text-slate-200 font-sans antialiased;
+    background-image: 
+      radial-gradient(circle at 50% -20%, rgba(196, 30, 58, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 0% 100%, rgba(196, 30, 58, 0.05) 0%, transparent 30%);
+    background-attachment: fixed;
+  }
+}
+
+.glass-panel {
+  @apply bg-brand-surface/50 backdrop-blur-md border border-white/10 rounded-xl;
+}
+
+.code-block {
+  @apply font-mono text-sm bg-black/40 p-4 rounded-lg border border-white/5 overflow-x-auto;
+}
+
+.btn-primary {
+  @apply bg-brand-red hover:bg-brand-red/90 text-white font-medium px-6 py-2.5 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2;
+}
+
+.input-field {
+  @apply bg-brand-dark border border-white/10 rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-brand-red/50 focus:border-brand-red/50 transition-all;
+}

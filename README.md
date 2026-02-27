@@ -14,6 +14,25 @@ Useful code entry points:
 - Webhook logic: [WebhookController.cs](file:///c:/Users/shawn/Downloads/OneEleven/Backend/Backend/Controllers/WebhookController.cs)
 - Project file: [Backend.csproj](file:///c:/Users/shawn/Downloads/OneEleven/Backend/Backend/Backend.csproj)
 
+## Quick Start (TL;DR)
+
+Backend
+
+```bash
+cd Backend/Backend
+dotnet run
+# API listens on http://localhost:5282
+```
+
+Frontend
+
+```bash
+cd Frontend/validator
+npm install
+npm run dev
+# Open http://localhost:3000
+```
+
 ## Requirements
 
 - .NET SDK 9.x
@@ -316,6 +335,57 @@ Open http://localhost:3000 and press Run. You can set defaults via environment v
 - 400 Bad Request with JSON in PowerShell: make sure the body is valid JSON. Prefer the `$json = @{...} | ConvertTo-Json` pattern or use `curl`.
 - 415 Unsupported Media Type: set `Content-Type` to `application/json` or `application/x-www-form-urlencoded`.
 - Port conflicts: adjust `applicationUrl` in [launchSettings.json](file:///c:/Users/shawn/Downloads/OneEleven/Backend/Backend/Properties/launchSettings.json).
+
+### Additional Troubleshooting
+
+- ENOSPC “no space left on device” during `npm install`:
+  - Clear `%LOCALAPPDATA%\Temp`
+  - `npm cache clean --force`
+  - Remove old `node_modules`
+  - Or use pnpm for a shared store:
+    - `corepack enable && corepack prepare pnpm@8 --activate`
+    - `pnpm install`
+- Node 22 quirks: If a dev dep breaks on Node 22, use Node 20 LTS locally/CI.
+
+## Git Push Guide
+
+From repo root:
+
+```powershell
+# .gitignore for .NET + Next.js
+@"
+**/bin/
+**/obj/
+**/.vs/
+node_modules/
+.next/
+dist/
+.env
+.env.*
+!.env.example
+.env.local
+.DS_Store
+Thumbs.db
+"@ | Out-File -FilePath .gitignore -Encoding utf8
+
+git init
+git branch -M main
+
+# API bootstrap
+git add .gitignore Backend/Backend/Backend.csproj Backend/Backend/Program.cs Backend/Backend/Properties/launchSettings.json
+git commit -m "chore(api): bootstrap ASP.NET Core app"
+
+# Webhook endpoints
+git add Backend/Backend/Controllers/WebhookController.cs
+git commit -m "feat(api): add /webhook and /webhook/echo endpoints"
+
+# README + Frontend
+git add README.md Frontend/validator
+git commit -m "docs: README; chore(frontend): Next.js validator app"
+
+git remote add origin https://github.com/ShawnTheCreator/oneevelen.git
+git push -u origin main
+```
 
 ## Notes
 

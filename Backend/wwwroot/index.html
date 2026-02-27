@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>API Validator</title>
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; margin: 2rem; max-width: 720px; }
+    label { display: block; margin-top: 1rem; font-weight: 600; }
+    input { width: 100%; padding: .6rem .7rem; font-size: 1rem; margin-top: .4rem; }
+    button { margin-top: 1rem; padding: .6rem 1rem; font-size: 1rem; cursor: pointer; }
+    pre { background: #f7f7f8; padding: 1rem; border-radius: 8px; overflow: auto; }
+    .row { display: flex; gap: 1rem; }
+    .row > div { flex: 1; }
+  </style>
+  <script>
+    async function runValidation(e) {
+      e.preventDefault();
+      const url = document.getElementById('url').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const out = document.getElementById('out');
+      out.textContent = 'Running...';
+      try {
+        const q = new URL('https://yhxzjyykdsfkdrmdxgho.supabase.co/functions/v1/application-task');
+        q.searchParams.set('url', url);
+        q.searchParams.set('email', email);
+        const res = await fetch(q.toString());
+        const text = await res.text();
+        let parsed;
+        try { parsed = JSON.parse(text); } catch { parsed = text; }
+        out.textContent = typeof parsed === 'string' ? parsed : JSON.stringify(parsed, null, 2);
+      } catch (err) {
+        out.textContent = String(err);
+      }
+    }
+  </script>
+  </head>
+  <body>
+    <h1>Validate Your API Endpoint</h1>
+    <p>Enter the public URL of your POST endpoint and your email. This calls the validation function and shows the response.</p>
+    <form onsubmit="runValidation(event)">
+      <label for="url">API Endpoint URL</label>
+      <input id="url" name="url" type="url" placeholder="https://your-host.tld/webhook" required />
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" placeholder="you@example.com" required />
+      <button type="submit">Run Validation</button>
+    </form>
+    <h2>Response</h2>
+    <pre id="out">Idle</pre>
+    <hr />
+    <h3>Local Test Helper</h3>
+    <p>To test your endpoint locally, POST JSON to <code>/webhook</code>:</p>
+    <pre>{
+  "data": "example"
+}</pre>
+  </body>
+</html>
+

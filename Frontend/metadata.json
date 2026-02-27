@@ -1,0 +1,5 @@
+{
+  "name": "One Eleven: API Validator",
+  "description": "Internal developer tool for validating API endpoints and Supabase integrations.",
+  "requestFramePermissions": []
+}
