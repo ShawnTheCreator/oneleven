@@ -78,3 +78,5 @@ https://yhxzjyykdsfkdrmdxgho.supabase.co/functions/v1/application-task?url=https
 
 ## License
 - Proprietary – for application submission purposes
+
+Deployment note: endpoint verified via GET and POST.
