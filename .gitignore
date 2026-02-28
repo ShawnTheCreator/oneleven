@@ -1,4 +1,4 @@
-﻿# .NET
+# .NET
 **/bin/
 **/obj/
 **/.vs/
@@ -13,13 +13,22 @@ npm-debug.log*
 yarn-debug.log*
 pnpm-debug.log*
 .eslintcache
+coverage/
+out/
+*.log
 
 # Env
 .env
 .env.*
 !.env.example
 .env.local
+*.local
 
 # OS
 .DS_Store
 Thumbs.db
+ 
+# Build artifacts
+**/build/
+**/publish/
+**/wwwroot/**/*.map
