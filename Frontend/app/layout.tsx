@@ -5,7 +5,9 @@ export const metadata: Metadata = {
   description: "Internal tool to validate the webhook endpoint quickly.",
   metadataBase: new URL("https://oneleven.vercel.app"),
   icons: {
-    icon: "/icon.ico"
+    icon: ["/favicon.svg", "/favicon.ico", "/icon.ico"],
+    shortcut: ["/favicon.ico"],
+    apple: ["/apple-touch-icon.png"]
   },
   openGraph: {
     title: "One Eleven: API Validator",

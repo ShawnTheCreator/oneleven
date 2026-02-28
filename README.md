@@ -64,6 +64,9 @@ https://yhxzjyykdsfkdrmdxgho.supabase.co/functions/v1/application-task?url=https
 
 ## Metadata and Social
 - Favicon: public/icon.ico
+- If favicon isn’t showing, place files under Frontend/public:
+  - public/favicon.ico and public/icon.ico
+  - A fallback SVG is included at public/favicon.svg
 - Open Graph/Twitter configured in app/layout.tsx for rich previews
 - Canonical: https://oneleven.vercel.app/
 
