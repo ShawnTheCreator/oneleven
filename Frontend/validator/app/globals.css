@@ -30,4 +30,20 @@ html,body{margin:0;padding:0;font-family:system-ui,Arial,sans-serif}
 .title{font-weight:600;margin-bottom:6px}
 .content{font-size:14px;white-space:pre-wrap;overflow:auto}
 .footer{text-align:center;color:#aaa;padding:24px 0;font-size:14px}
-
+.pulse{animation:pulse 2s ease-in-out 1}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(6,95,70,.6)}
+  50%{box-shadow:0 0 0 12px rgba(6,95,70,0)}
+  100%{box-shadow:0 0 0 0 rgba(6,95,70,0)}
+}
+.checklist{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.check-item{display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(6px);animation:enter .5s ease forwards}
+.check-item:nth-child(1){animation-delay:.1s}
+.check-item:nth-child(2){animation-delay:.25s}
+.check-item:nth-child(3){animation-delay:.4s}
+.check-item:nth-child(4){animation-delay:.55s}
+@keyframes enter{
+  0%{opacity:0;transform:translateY(6px)}
+  100%{opacity:1;transform:translateY(0)}
+}
+.check-icon{width:20px;height:20px;color:#10b981;background:#064e3b;border-radius:50%;padding:2px;box-shadow:0 2px 8px rgba(0,0,0,.25)}

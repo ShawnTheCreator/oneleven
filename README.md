@@ -24,6 +24,11 @@ dotnet run
 # API listens on http://localhost:5282
 ```
 
+Local URLs
+
+- API base: http://localhost:5282
+- Webhook endpoint: http://localhost:5282/webhook
+
 Frontend
 
 ```bash
@@ -321,7 +326,7 @@ npm run dev
 
 Open http://localhost:3000 and press Run. You can set defaults via environment vars:
 
-- NEXT_PUBLIC_DEFAULT_URL (e.g., your public https://.../webhook)
+- NEXT_PUBLIC_DEFAULT_URL (e.g., http://localhost:5282/webhook for local)
 - NEXT_PUBLIC_DEFAULT_EMAIL
 
 ### Frontend (Vercel) – Deploy
@@ -329,6 +334,8 @@ Open http://localhost:3000 and press Run. You can set defaults via environment v
 - Import the Frontend/validator folder into Vercel
 - Enable build command `npm run build` and output `.next`
 - Set environment variables for defaults as needed
+  - NEXT_PUBLIC_DEFAULT_URL=https://oneevelen.onrender.com/webhook
+  - NEXT_PUBLIC_DEFAULT_EMAIL=you@example.com
 
 ## Troubleshooting
 

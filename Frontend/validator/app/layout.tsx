@@ -1,5 +1,5 @@
-"use client";
 import "./globals.css";
+// @ts-ignore Cannot find module 'next' or its corresponding type declarations.
 import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "One Eleven: API Validator",
@@ -28,4 +28,3 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
-
