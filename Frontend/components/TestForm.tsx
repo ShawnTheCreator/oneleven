@@ -5,7 +5,7 @@ type Props = {
   onSuccess: (data: any) => void;
   onError: (err: { status?: number; message?: string }) => void;
 };
-const DEFAULT_URL = process.env.NEXT_PUBLIC_DEFAULT_URL ?? "https://oneevelen.onrender.com/webhook";
+const DEFAULT_URL = process.env.NEXT_PUBLIC_DEFAULT_URL ?? "https://oneleven.onrender.com/webhook";
 const DEFAULT_EMAIL = process.env.NEXT_PUBLIC_DEFAULT_EMAIL ?? "you@example.com";
 export default function TestForm({ onStatusChange, onSuccess, onError }: Props) {
   const [url, setUrl] = useState(DEFAULT_URL);

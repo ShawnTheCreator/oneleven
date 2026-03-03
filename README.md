@@ -3,7 +3,7 @@
 ## Overview
 - Backend: ASP.NET Core API with a POST /webhook endpoint
 - Frontend: Next.js (App Router) validator UI with Live, Direct, and Offline modes
-- Live backend: https://oneevelen.onrender.com/webhook
+- Live backend: https://oneleven.onrender.com/webhook
 - Frontend URL: https://oneleven.vercel.app/
 
 ## Assignment Compliance
@@ -59,7 +59,7 @@ https://yhxzjyykdsfkdrmdxgho.supabase.co/functions/v1/application-task?url=YOUR_
 Example:
 
 ```
-https://yhxzjyykdsfkdrmdxgho.supabase.co/functions/v1/application-task?url=https://oneevelen.onrender.com/webhook&email=you@example.com
+https://yhxzjyykdsfkdrmdxgho.supabase.co/functions/v1/application-task?url=https://oneleven.onrender.com/webhook&email=you@example.com
 ```
 
 ## Metadata and Social
